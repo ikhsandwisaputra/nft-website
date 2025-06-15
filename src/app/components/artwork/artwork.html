@@ -1,0 +1,42 @@
+<section id="explore">
+   <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12">
+      Explore Artworks
+    </h2>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+  <div *ngFor="let category of categories" class="category-card">
+    
+    <div class="image-collage" [ngClass]="{
+        'grid-cols-2': category.layoutType === 'A' || category.layoutType === 'B',
+        'grid-cols-3': category.layoutType === 'C'
+      }">
+      
+      <ng-container *ngIf="category.layoutType === 'A'">
+        <img [src]="category.images[0]" alt="{{ category.name }} 1" class="collage-img">
+        <img [src]="category.images[1]" alt="{{ category.name }} 2" class="collage-img">
+        <img [src]="category.images[2]" alt="{{ category.name }} 3" class="collage-img col-span-2">
+      </ng-container>
+
+      <ng-container *ngIf="category.layoutType === 'B'">
+        <img [src]="category.images[2]" alt="{{ category.name }} 3" class="collage-img row-span-2">
+        <img [src]="category.images[0]" alt="{{ category.name }} 1" class="collage-img">
+        <img [src]="category.images[1]" alt="{{ category.name }} 2" class="collage-img">
+      </ng-container>
+
+      <ng-container *ngIf="category.layoutType === 'C'">
+        <img [src]="category.images[0]" alt="{{ category.name }} 1" class="collage-img">
+        <img [src]="category.images[1]" alt="{{ category.name }} 2" class="collage-img">
+        <img [src]="category.images[2]" alt="{{ category.name }} 3" class="collage-img">
+        <img [src]="category.images[3]" alt="{{ category.name }} 4" class="collage-img col-span-3">
+      </ng-container>
+
+    </div>
+
+    <div class="card-info">
+      <p class="text-white font-semibold">{{ category.name }}</p>
+      <span class="item-badge">{{ category.itemCount }} Items</span>
+    </div>
+  </div>
+</div>
+</section>

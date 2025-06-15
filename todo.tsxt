@@ -1,0 +1,90 @@
+what to do ??
+- navbar navigasi hanya ke scrolling 
+
+
+modifikasi kodingan ini menjadi seperti pada gambar tersebut, 
+
+
+@import "tailwindcss";
+@import 'swiper/css';
+@import 'swiper/css/effect-coverflow'; 
+:root {
+  --brand-bg-dark: #060318;
+  --brand-blob-1: #194586;
+  /* Gradien Kartu */
+    --grad-c1: #67bde4;
+    --grad-c2: #da8cd7;
+    --grad-c3: #bf43fd;
+
+    /* Gradien Info */
+    --info-c1: #6d4acf;
+    --info-c2: #4d9de4;
+  }
+
+  
+
+@layer components {
+  /*HERO*/
+  .bg-gradient{
+   @apply bg-gradient-to-r from-[#1e104b] to-[#1b3d7c]
+  }
+  .active-link {
+    @apply text-white font-semibold relative;
+  }
+  
+  .active-link::after {
+    content: '';
+    @apply absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-3/4 h-0.5 bg-blue-500 rounded-full;
+  }
+
+/*LOGO MARQUEE*/
+  .logo-marq{
+    @apply flex flex-wrap justify-evenly items-center;
+  }
+  .logo-marq img{
+@apply h-16 max-w-[100px] md:max-w-[120px] object-contain;
+  }
+
+/*POPULAR*/
+  /* 1. Styling Background Section */
+  .popular-section-bg {
+    @apply relative overflow-hidden;
+    background-color: var(--brand-bg-dark);
+  }
+  .popular-section-bg::before {
+    content: '';
+    @apply absolute -z-0;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--brand-blob-1) 0%, transparent 60%);
+    filter: blur(150px);
+  }
+
+ 
+ 
+}
+
+@layer utilities {
+  .hero-gradient-bg {
+    background-color: var(--brand-bg-dark);
+    @apply relative overflow-hidden;
+  }
+
+  .hero-gradient-bg::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 30%, var(--brand-blob-1) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, var(--brand-bg-dark) 0%, transparent 50%),
+      radial-gradient(circle at 80% 95%, var(--brand-blob-2) 0%, transparent 45%);
+    filter: blur(120px);
+  }
+}

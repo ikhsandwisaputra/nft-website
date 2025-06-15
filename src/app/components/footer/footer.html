@@ -1,0 +1,30 @@
+<footer class="footer-container">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+      <div class="lg:col-span-1">
+       <app-logo></app-logo>
+        <p class="mt-4 text-gray-400 text-sm max-w-xs">
+          The World's Largest Digital Marketplace for crypto collections and non fungible tokens (NFTs) buy, sell and discover exclusive digital assests.
+        </p>
+        <div class="mt-6 flex items-center gap-4">
+          <a *ngFor="let social of socials" [href]="social.url" class="social-icon" [title]="social.name">
+            <span [innerHTML]="getSafeHtml(social.icon)"></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div *ngFor="let column of footerColumns">
+          <h3 class="footer-title">{{ column.title }}</h3>
+          <ul class="mt-4 space-y-3">
+            <li *ngFor="let link of column.links">
+              <a href="#" class="footer-link">{{ link }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>

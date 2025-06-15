@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Monoton&family=Orbitron:wght@400..900&family=Syne:wght@400..800&display=swap');
+
+#logo-web {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem; /* Tambahkan ukuran font agar terlihat jelas */
+  
+  /* 1. Atur background menjadi gradien biru-ungu */
+  background: linear-gradient(to right, #8a2be2, #4d9de4);
+  
+  /* 2. Potong background sesuai bentuk teks */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* 3. Buat warna teks asli menjadi transparan */
+  color: transparent;
+}
